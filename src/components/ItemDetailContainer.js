@@ -1,27 +1,21 @@
-// src/components/ItemDetailContainer.js
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import ItemDetail from './ItemDetail';
 
-const ItemDetailContainer = () => {
-  const { itemId } = useParams();
-  const [item, setItem] = useState(null);
+function ItemDetailContainer() {
+    const { productId } = useParams();
+    const [item, setItem] = useState(null);
 
-  useEffect(() => {
-      }, [itemId]);
+    useEffect(() => {
+        const product = { id: 1, name: 'Sombras', price: 15, description: 'Awesome shadows!', image: 'sombras' };
+        setItem(product);
+    }, [productId]);
 
-  return (
-    <div>
-      {item ? (
+    return (
         <div>
-          <h2>{item.name}</h2>
-          <p>{item.description}</p>
-          {/* Mostrar más detalles del producto */}
+            {item && <ItemDetail item={item} />}
         </div>
-      ) : (
-        <p>Cargando...</p>
-      )}
-    </div>
-  );
-};
+    );
+}
 
 export default ItemDetailContainer;

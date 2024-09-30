@@ -1,43 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import ItemList from './ItemList';
 
-const ItemListContainer = () => {
-  const { categoryId } = useParams(); // corregido para obtener  parámetro categoryId desde la URL
-  const [products, setProducts] = useState([]);
+function ItemListContainer({ greeting }) {
+    const [items, setItems] = useState([]);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const allProducts = [
-        { id: 1, name: 'Producto 1', category: 'ojos' },
-        { id: 2, name: 'Producto 2', category: 'labios' },
-        { id: 3, name: 'Producto 3', category: 'skincare' },
-      ];
+    useEffect(() => {
+        const products = [
+            { id: 1, name: 'Sombras', price: 15, image: 'sombras' },
+            { id: 2, name: 'Labiales', price: 12, image: 'labiales' },
+            { id: 3, name: 'Serums', price: 25, image: 'serums' },
+        ];
+        setItems(products);
+    }, []);
 
-      if (categoryId) {
-        // Filtro productos por categoría
-        const filteredProducts = allProducts.filter(product => product.category === categoryId);
-        setProducts(filteredProducts);
-      } else {
-        // muestro productos si no hay categoria
-        setProducts(allProducts);
-      }
-    };
-
-    fetchProducts();
-  }, [categoryId]); // 
-
-  return (
-    <div>
-      <h1>{categoryId ? `Categoría: ${categoryId}` : 'Todos los productos'}</h1>
-      <ul>
-        {products.map(product => (
-          <li key={product.id}>{product.name}</li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+    return (
+        <div>
+            <h2>{greeting}</h2>
+            <ItemList items={items} />
+        </div>
+    );
+}
 
 export default ItemListContainer;
-
-

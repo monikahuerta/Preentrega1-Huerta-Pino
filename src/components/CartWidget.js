@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
 
-const CartWidget = () => {
-  return (
-    <div className="cart-widget">
-      <i className="fas fa-shopping-cart"></i>
-      <span className="cart-count">4</span> {/* Número de elementos en mi carrito */}
-    </div>
-  );
-};
+function CartWidget() {
+    const { cartQuantity } = useContext(CartContext);
+    
+    return (
+        <div>
+            <i className="fas fa-shopping-cart"></i>
+            <span>{cartQuantity}</span>
+        </div>
+    );
+}
 
 export default CartWidget;
+

@@ -1,22 +1,27 @@
-// src/components/NavBar.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CartWidget from './CartWidget';
 
-const NavBar = () => {
-  return (
-    <nav className="navbar">
-      <div className="brand">
-        <Link to="/">Colour Beauty</Link>
-      </div>
-      <ul className="nav-links">
-        <li><Link to="/category/ojos">Ojos</Link></li>
-        <li><Link to="/category/labios">Labios</Link></li>
-        <li><Link to="/category/skincare">Skincare</Link></li>
-      </ul>
-      <CartWidget />
-    </nav>
-  );
-};
+function NavBar() {
+    return (
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <Link className="navbar-brand" to="/">Colour Beauty</Link>
+            <div className="collapse navbar-collapse" id="navbarNav">
+                <ul className="navbar-nav">
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/category/sombras">Sombras</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/category/labiales">Labiales</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/category/serums">Serums</Link>
+                    </li>
+                </ul>
+            </div>
+            <CartWidget />
+        </nav>
+    );
+}
 
 export default NavBar;
