@@ -6,8 +6,8 @@ function Item({ item }) {
         <div className="item-card">
             <img src={`/images/${item.image}.jpg`} alt={item.name} />
             <h3>{item.name}</h3>
-            <p>Price: ${item.price}</p>
-            <Link to={`/product/${item.id}`}>View Details</Link>
+            <p>Precio: ${item.price}</p>
+            <Link to={`/product/${item.id}`}>Ver Detalles</Link>
         </div>
     );
 }

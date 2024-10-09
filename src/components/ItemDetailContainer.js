@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import ItemDetail from './ItemDetail';
+import ItemDetails from './ItemDetails';
 
 function ItemDetailContainer() {
     const { productId } = useParams();
     const [item, setItem] = useState(null);
 
     useEffect(() => {
-        const product = { id: 1, name: 'Sombras', price: 15, description: 'Awesome shadows!', image: 'sombras' };
+        const product = { id: 1, name: 'Sombras', price: 15, description: 'Sombras increíbles!', image: 'sombras' };
         setItem(product);
     }, [productId]);
 
     return (
         <div>
-            {item && <ItemDetail item={item} />}
+            {item && <ItemDetails item={item} />}
         </div>
     );
 }

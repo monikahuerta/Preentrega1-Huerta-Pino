@@ -1,16 +1,12 @@
-import React, { useContext } from 'react';
-import { CartContext } from '../context/CartContext';
+import React from 'react';
 
 function CartWidget() {
-    const { cartQuantity } = useContext(CartContext);
-    
-    return (
-        <div>
-            <i className="fas fa-shopping-cart"></i>
-            <span>{cartQuantity}</span>
-        </div>
-    );
+  return (
+    <div>
+      <img src="/images/carrito.png" alt="Carrito" style={{ width: '30px' }} />
+      <span>0</span> {/* Esto puede ser un contador de ítems */}
+    </div>
+  );
 }
 
 export default CartWidget;
-

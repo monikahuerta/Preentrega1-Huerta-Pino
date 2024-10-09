@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
-import CartProvider from './context/CartContext';
-import Checkout from './components/Checkout';
+import CartProvider from './Context/CartContext';
+import Checkout from './components/Checkout';  
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <Router>
         <NavBar />
         <Routes>
-          <Route path="/" element={<ItemListContainer greeting="Welcome to Colour Beauty!" />} />
+          <Route path="/" element={<ItemListContainer greeting="Bienvenida a Colour Beauty!" />} />
           <Route path="/category/:categoryId" element={<ItemListContainer />} />
           <Route path="/product/:productId" element={<ItemDetailContainer />} />
           <Route path="/checkout" element={<Checkout />} />

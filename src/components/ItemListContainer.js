@@ -6,12 +6,14 @@ function ItemListContainer({ greeting }) {
 
     useEffect(() => {
         const products = [
-            { id: 1, name: 'Sombras', price: 15, image: 'sombras' },
-            { id: 2, name: 'Labiales', price: 12, image: 'labiales' },
-            { id: 3, name: 'Serums', price: 25, image: 'serums' },
+          { id: 1, name: 'Sombras', price: 15, image: '/images/sombras1.jpg' },
+          { id: 2, name: 'Labiales', price: 12, image: '/images/labial1.jpg' },
+          { id: 3, name: 'Serums', price: 25, image: '/images/serum1.jpg' }
         ];
+      
+        console.log(products.map(p => p.image)); // quiero que imprima las rutas de las imágenes
         setItems(products);
-    }, []);
+      }, []);         
 
     return (
         <div>
