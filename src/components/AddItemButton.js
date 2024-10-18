@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../Context/CartContext';
 
-function AddItemButton({ item }) {
+function AddItemButton({ item, quantity }) {
     const { addItemToCart } = useContext(CartContext);
 
     const handleClick = () => {
-        addItemToCart(item, 1);
+        addItemToCart(item, quantity);
     };
 
     return (

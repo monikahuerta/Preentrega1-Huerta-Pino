@@ -7,7 +7,16 @@ function CartProvider({ children }) {
     const [cartQuantity, setCartQuantity] = useState(0);
 
     const addItemToCart = (item, quantity) => {
-        setCartItems([...cartItems, { ...item, quantity }]);
+        const existingItemIndex = cartItems.findIndex(cartItem => cartItem.id === item.id);
+
+        if (existingItemIndex !== -1) {
+            const updatedCartItems = [...cartItems];
+            updatedCartItems[existingItemIndex].quantity += quantity;
+            setCartItems(updatedCartItems);
+        } else {
+            setCartItems([...cartItems, { ...item, quantity }]);
+        }
+
         setCartQuantity(cartQuantity + quantity);
     };
 

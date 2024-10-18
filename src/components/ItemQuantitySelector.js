@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function ItemQuantitySelector() {
-    const [quantity, setQuantity] = useState(1);
-
-    const increaseQuantity = () => setQuantity(quantity + 1);
+function ItemQuantitySelector({ quantity, setQuantity }) {
+    const increaseQuantity = () => setQuantity(prevQuantity => prevQuantity + 1);
     const decreaseQuantity = () => {
         if (quantity > 1) {
-            setQuantity(quantity - 1);
+            setQuantity(prevQuantity => prevQuantity - 1);
         }
     };
 
